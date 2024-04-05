@@ -1,5 +1,5 @@
-files = main.c
-bin = main
+files = src/main.c
+bin = bin/main
 cc = gcc -Wall -Werror
 
 all: compile run

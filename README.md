@@ -1,71 +1,35 @@
 # Voting System in C
 
-This project implements a simple voting system that manages:
+This is a simple tool that helps run elections from the command-line. It's written in C, with SQL. It helps keep track of who can vote, who is running for a position (a candidate), who has voted, and who won. Each person who can vote is unique and can only vote in certain elections. They use a secret code, their pin, to make sure they're who they say they are. Candidates are people who want to be elected or chosen for something. Votes are recorded, and the results show who won each election and by how many votes. This system makes it easier to run elections and keep everything organized and fair.
 
-- **Registered Voters**: Individuals who are eligible to participate in the voting process.
-- **Voting Processes**: Various elections or decisions to be voted on, such as class presidency or committee membership.
-- **Candidates**: Individuals who are nominated and stand a chance to be elected or selected.
-- **Voting Results**: The outcomes of the voting process, including who won each election and by how many votes.
-- **Ballot**: The votes cast
+## Dependencies
 
-## Characteristics
+- Database (sqlite3)[https://www.sqlite.org/docs.html]
 
-- Each voting process is unique.
-- Registered voters are unique individuals.
-- Registered voters are specific to each voting process, meaning a voter can be qualified to participate in voting process A but not B, even though the voter exists.
-- Voting results or outcomes are specific to each voting process.
+## Resources
 
-## Entities
+- gcc
+- (sqlite3)[https://www.sqlite.org/docs.html]
 
-**Voting Processes**
+  - ```sh
+    # update system
+    sudo apt update
 
-> entity name: voting_processes
+    # install sqlite3
+    sudo apt install sqlite3
 
-- id: number, that represents row id
-- name: a string of at most 20 characters that uniquely identifies a voting process
-- status: a number (0, 1), which indicates the state of the voting , 0 for not done and one for done
+    ```
 
-**Registered Voters**
+- vscode
+- (SQLite extension)[https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite] by alexcvzz
 
-> entity name: registered_voters
+## Installation/Set up
 
-- id: number, that represents row id
-- voter_id: a string of 10 characters that uniquely identifies a qualified voter
-- secret: a string of 5 characters that qualified voter would use to access the voting system, as a means of authentication
-- voting_processes: number, that represents a voting processes a registered voter is part of
+Create Database and migrate the tables
 
-**Candidates**
-
-> entity name: candidates
-
-- id: number, that represents row id
-- candidate_id: a string of 10 characters that uniquely identifies a nominated candidate
-- name: a string of characters that is displayed for nominated candidate
-- voting_processes: number, that represents a voting processes a candidate is part of
-
-**Ballot**
-
-> entity name: ballot
-
-- id: number, that represents row id
-- voter_id: number, that represents a voter
-- candidate_id: number, that represents a candidate
-
-**Results**
-
-- id: number, that represents row id
-- candidate_id: number, that represents a candidate
-- count: number that represents the number of votes a candidate got
-
-## Limitations
-
-<!--
-- with the database choice used
-- the table design
--
--->
-
-## Installation
+```sh
+make create-db
+```
 
 ## Build
 
@@ -74,3 +38,5 @@ This project implements a simple voting system that manages:
 ## Contribution
 
 ## Improvements
+
+## Limitations

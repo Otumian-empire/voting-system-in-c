@@ -4,32 +4,37 @@ This is a simple tool that helps run elections from the command-line. It's writt
 
 ## Dependencies
 
-- Database (sqlite3)[https://www.sqlite.org/docs.html]
+- Database [sqlite3](https://www.sqlite.org/docs.html)
 
 ## Resources
 
-- gcc
-- (sqlite3)[https://www.sqlite.org/docs.html]
+- [gcc](https://developer.fedoraproject.org/tech/languages/c/c_installation.html)
+- [sqlite3](https://www.sqlite.org/docs.html)
 
   - ```sh
     # update system
     sudo apt update
+    # sudo dfn update
 
     # install sqlite3
     sudo apt install sqlite3
+    # sudo dnf install sqlite3
 
     ```
 
 - vscode
-- (SQLite extension)[https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite] by alexcvzz
+- [SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite) by alexcvzz
 
 ## Installation/Set up
 
-Create Database and migrate the tables
+- Install C compiler, `sudo dnf install make automake gcc`,
+- Run this command to create the `bin` folder, `mkdir bin` when the `make create-db` gives you an error.
 
-```sh
-make create-db
-```
+- Create Database and migrate the tables
+
+  ```sh
+  make create-db
+  ```
 
 ## Build
 

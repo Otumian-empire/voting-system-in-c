@@ -1,16 +1,8 @@
-#include <stdlib.h>
-#include "./ui/ui.h"
-#include "./include/include.h"
+#include "./controller/controller.h"
 
 int main()
 {
-	start_app();
-	int start_option = get_int_input();
-	if (!validate_input(start_option, UI_START_APP_OPTION_START, UI_START_APP_OPTION_END))
-	{
-		printf(UI_START_APP_OPTION_ERR_MESSAGE);
-		exit(0);
-	}
+	int start_option = start_app_controller();
 
 	// 1. create a voting process
 	// 2. add voters
@@ -22,29 +14,28 @@ int main()
 	switch (start_option)
 	{
 	case 1:
-		printf("1. create a voting process\n");
+		create_voting_process_controller();
 		break;
 	case 2:
-		printf("2. add voters\n");
+		add_voter_controller();
 		break;
 	case 3:
-		printf("3. add candidates\n");
+		add_candidate_controller();
 		break;
 	case 4:
-		printf("4. vote\n");
+		vote_controller();
 		break;
 	case 5:
-		printf("5. view voter's result\n");
+		view_voters_result_controller();
 		break;
 	case 6:
-		printf("6. end voting process\n");
+		end_voting_process_controller();
 		break;
 	case 7:
-		printf("7. view voting results\n");
+		view_voting_results_controller();
 		break;
 	default:
-		printf(UI_START_APP_OPTION_ERR_MESSAGE);
-		exit(0);
+		exit_with_error_message("Invalid option selected");
 	}
 
 	return 0;

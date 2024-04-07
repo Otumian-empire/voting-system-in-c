@@ -27,5 +27,6 @@ void start_app()
 
 void create_voting_process()
 {
-	printf("View for creating voting process\n");
+	// printf("View for creating voting process\n");
+	printf("Enter name of voting process: ");
 }

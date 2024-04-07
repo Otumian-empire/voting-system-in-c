@@ -1,4 +1,4 @@
-files = src/main.c src/ui/ui.c src/include/include.c
+files = src/main.c src/ui/ui.c src/include/include.c src/controller/controller.c
 bin = bin/main
 cc = gcc -Wall -Werror
 db_name = bin/voting_system_db.db

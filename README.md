@@ -29,12 +29,8 @@ This is a simple tool that helps run elections from the command-line. It's writt
 
 - Install C compiler, `sudo dnf install make automake gcc`,
 - Run this command to create the `bin` folder, `mkdir bin` when the `make create-db` gives you an error.
-
-- Create Database and migrate the tables
-
-  ```sh
-  make create-db
-  ```
+- Drop the database with `make drop-db`, after a `database` modification. Run, `make create-db`
+- Create Database and migrate the tables, `make create-db`
 
 ## Build
 

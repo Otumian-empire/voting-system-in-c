@@ -17,7 +17,7 @@ This project implements a simple voting system that manages:
 
 ## Entities
 
-**Voting Processes**
+### Voting Processes
 
 > entity name: voting_processes
 
@@ -25,16 +25,17 @@ This project implements a simple voting system that manages:
 - name: a string of at most 20 characters that uniquely identifies a voting process
 - status: a number (0, 1), which indicates the state of the voting , 0 for not done and one for done
 
-**Registered Voters**
+### Registered Voters
 
 > entity name: registered_voters
 
 - id: number, that represents row id
 - voter_id: a string of 10 characters that uniquely identifies a qualified voter
+- has_voted: a number (supposed to be a boolean) by default 0, indicating a voter has yet to vote
 - secret: a string of 5 characters that qualified voter would use to access the voting system, as a means of authentication
 - voting_processes: number, that represents a voting processes a registered voter is part of
 
-**Candidates**
+### Candidates
 
 > entity name: candidates
 
@@ -43,7 +44,7 @@ This project implements a simple voting system that manages:
 - name: a string of characters that is displayed for nominated candidate
 - voting_processes: number, that represents a voting processes a candidate is part of
 
-**Ballot**
+### Ballot
 
 > entity name: ballot
 
@@ -51,8 +52,20 @@ This project implements a simple voting system that manages:
 - voter_id: number, that represents a voter
 - candidate_id: number, that represents a candidate
 
-**Results**
+### Results
 
 - id: number, that represents row id
 - candidate_id: number, that represents a candidate
 - count: number that represents the number of votes a candidate got
+
+## View
+
+In this context, "view" refers to the interface with which the user of the voting system interacts.
+
+- Some administrator (we don't know or care who this is) creates a voting process.
+- This administrator adds voters to the voting process (we have to think about how voters and candidates will be added).
+- This administrator adds candidates to the voting process.
+- A voter who is part of the voting process casts their vote.
+- This voter can view the vote they have cast (the result of their vote, who they voted for to verify).
+- This administrator can view the result of the voting process.
+- This administrator can end a voting process (This is the only time a result record is created).

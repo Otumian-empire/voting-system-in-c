@@ -4,7 +4,7 @@
 CREATE TABLE voting_processes (
     id INTEGER PRIMARY KEY,
     name TEXT NOT NULL UNIQUE,
-    status INTEGER NOT NULL CHECK(status IN (0, 1))
+    status INTEGER NOT NULL DEFAULT 0 CHECK(status IN (0, 1))
 );
 
 -- Create Registered Voters table
@@ -12,6 +12,7 @@ CREATE TABLE registered_voters (
     id INTEGER PRIMARY KEY,
     voter_id TEXT NOT NULL UNIQUE,
     secret TEXT NOT NULL,
+    has_voted INTEGER NOT NULL DEFAULT 0 CHECK(has_voted IN (0, 1)),
     voting_processes INTEGER,
     FOREIGN KEY(voting_processes) REFERENCES voting_processes(id)
 );

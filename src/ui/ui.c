@@ -1,15 +1,22 @@
 #include "./ui.h"
 
-/*
-display options to
-1. create a voting process
-2. add voters
-3. add candidates
-4. vote
-5. view voter's result (this is done by a voter)
-6. end voting process
-7. view voting results
-else: exit app
+void print_prompt()
+{
+	printf(UI_INPUT_PROMPT);
+}
+
+/**
+ * start_app_ui
+ *
+ * displays options to
+ * - 1. create a voting process
+ * - 2. add voters
+ * - 3. add candidates
+ * - 4. vote
+ * - 5. view voter's result (this is done by a voter)
+ * - 6. end voting process
+ * - 7. view voting results
+ * - else: exit app
  */
 void start_app_ui()
 {
@@ -23,10 +30,30 @@ void start_app_ui()
 	printf("6. end voting process\n");
 	printf("7. view voting results\n");
 	printf("else: exit app\n");
+	print_prompt();
 }
 
+/**
+ * create_voting_process_ui
+ *
+ * displays the create voting process prompt
+ */
 void create_voting_process_ui()
 {
 	// printf("View for creating voting process\n");
-	printf("Enter name of voting process: ");
+	printf("Enter name of voting process\n");
+	print_prompt();
+}
+
+/**
+ * add_voter_ui
+ *
+ * - displays prompt for adding a voter onto a voting process
+ * - Eg: [username] [pin] [voting_process_id]
+ */
+void add_voter_ui()
+{
+	printf("Enter voter's username, pin and voting process ID in order\n");
+	printf("Eg: 1000001211 1234 1\n");
+	print_prompt();
 }

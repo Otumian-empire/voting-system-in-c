@@ -39,10 +39,17 @@ void create_voting_process_controller()
  *
  * - calls add voter ui
  * - voter's username, pin and the voting process id is required
+ * - Eg: [username] [pin] [voting_process_id]
  */
 void add_voter_controller()
 {
-	printf("add_voter_controller\n");
+	char username[11] = {'\0'}, pin[6] = {'\0'};
+	int voting_process_id = 0;
+
+	add_voter_ui();
+
+	scanf("%s %s %d", username, pin, &voting_process_id);
+	printf("add_voter_controller: %s %s %d\n", username, pin, voting_process_id);
 }
 
 // 3. add candidates

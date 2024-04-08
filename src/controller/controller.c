@@ -9,6 +9,8 @@
 int start_app_controller()
 {
 	start_app_ui();
+	print_prompt_ui();
+
 	int start_option = get_int_input();
 	if (!validate_input(start_option, UI_START_APP_OPTION_START, UI_START_APP_OPTION_END))
 	{
@@ -29,6 +31,8 @@ int start_app_controller()
 void create_voting_process_controller()
 {
 	create_voting_process_ui();
+	print_prompt_ui();
+
 	char str[100];
 	get_str_input(str, sizeof(str));
 	printf("voting process name: %s\n", str);
@@ -48,7 +52,15 @@ void add_voter_controller()
 
 	add_voter_ui();
 
-	scanf("%s %s %d", username, pin, &voting_process_id);
+	print_prompt_ui();
+	get_str_input(username, sizeof(username));
+
+	print_prompt_ui();
+	get_str_input(pin, sizeof(pin));
+
+	print_prompt_ui();
+	voting_process_id = get_int_input();
+
 	printf("add_voter_controller: %s %s %d\n", username, pin, voting_process_id);
 }
 
@@ -65,10 +77,13 @@ void add_candidate_controller()
 	char username[11] = {'\0'}, full_name[26] = {'\0'};
 	int voting_process_id = 0;
 
+	print_prompt_ui();
 	get_str_input(username, sizeof(username));
-	print_prompt();
+
+	print_prompt_ui();
 	get_str_input(full_name, sizeof(full_name));
-	print_prompt();
+
+	print_prompt_ui();
 	voting_process_id = get_int_input();
 
 	printf("add_candidate_controller: %s %s VPID(%d)\n", username, full_name, voting_process_id);

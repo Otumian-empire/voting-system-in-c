@@ -15,6 +15,6 @@ void start_app_ui();
 void create_voting_process_ui();
 void add_voter_ui();
 void add_candidate_ui();
-void print_prompt();
+void print_prompt_ui();
 
 #endif

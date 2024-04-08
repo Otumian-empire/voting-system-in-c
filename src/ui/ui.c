@@ -1,6 +1,6 @@
 #include "./ui.h"
 
-void print_prompt()
+void print_prompt_ui()
 {
 	printf(UI_INPUT_PROMPT);
 }
@@ -30,7 +30,6 @@ void start_app_ui()
 	printf("6. end voting process\n");
 	printf("7. view voting results\n");
 	printf("else: exit app\n");
-	print_prompt();
 }
 
 /**
@@ -42,7 +41,6 @@ void create_voting_process_ui()
 {
 	// printf("View for creating voting process\n");
 	printf("Enter name of voting process\n");
-	print_prompt();
 }
 
 /**
@@ -55,7 +53,6 @@ void add_voter_ui()
 {
 	printf("Enter voter's username, pin and voting process ID in order\n");
 	printf("Eg: 1000001211 1234 1\n");
-	print_prompt();
 }
 
 /**
@@ -67,5 +64,4 @@ void add_candidate_ui()
 {
 	printf("Enter voter's username, full name and voting process ID in order\n");
 	printf("Eg: 1000001211 john doe 1\n");
-	print_prompt();
 }

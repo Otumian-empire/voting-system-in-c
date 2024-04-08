@@ -10,8 +10,8 @@ CREATE TABLE voting_processes (
 -- Create Registered Voters table
 CREATE TABLE registered_voters (
     id INTEGER PRIMARY KEY,
-    voter_id TEXT NOT NULL UNIQUE,
-    secret TEXT NOT NULL,
+    username TEXT NOT NULL UNIQUE,
+    pin TEXT NOT NULL,
     has_voted INTEGER NOT NULL DEFAULT 0 CHECK(has_voted IN (0, 1)),
     voting_processes INTEGER,
     FOREIGN KEY(voting_processes) REFERENCES voting_processes(id)

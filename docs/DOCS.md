@@ -30,9 +30,9 @@ This project implements a simple voting system that manages:
 > entity name: registered_voters
 
 - id: number, that represents row id
-- voter_id: a string of 10 characters that uniquely identifies a qualified voter
+- username: a string of 10 characters that uniquely identifies a qualified voter
 - has_voted: a number (supposed to be a boolean) by default 0, indicating a voter has yet to vote
-- secret: a string of 5 characters that qualified voter would use to access the voting system, as a means of authentication
+- pin: a string of 5 characters that qualified voter would use to access the voting system, as a means of authentication
 - voting_processes: number, that represents a voting processes a registered voter is part of
 
 ### Candidates

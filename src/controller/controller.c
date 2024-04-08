@@ -52,10 +52,26 @@ void add_voter_controller()
 	printf("add_voter_controller: %s %s %d\n", username, pin, voting_process_id);
 }
 
-// 3. add candidates
+/**
+ * add candidates
+ *
+ * - calls add candidate ui
+ * - candidate's username, name and voting process id are required
+ * - Eg: [username] [full_name] [voting_process_id]
+ */
 void add_candidate_controller()
 {
-	printf("add_candidate_controller\n");
+	add_candidate_ui();
+	char username[11] = {'\0'}, full_name[26] = {'\0'};
+	int voting_process_id = 0;
+
+	get_str_input(username, sizeof(username));
+	print_prompt();
+	get_str_input(full_name, sizeof(full_name));
+	print_prompt();
+	voting_process_id = get_int_input();
+
+	printf("add_candidate_controller: %s %s VPID(%d)\n", username, full_name, voting_process_id);
 }
 
 // 4. vote

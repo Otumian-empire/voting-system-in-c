@@ -6,11 +6,7 @@ int get_int_input()
 	int input = 0;
 	scanf("%d", &input);
 
-	// this is to remove the \n character from the stdin after scanf
-	int c;
-	while ((c = getchar()) != '\n' && c != EOF)
-	{
-	};
+	clear_buffer();
 
 	return input;
 }
@@ -31,9 +27,26 @@ void get_str_input(char *input, size_t size)
 	}
 }
 
-/* print some error message and exit */
+/**
+ * exit_with_error_message(char *error_message)
+ *
+ * print some error message and exit
+ */
 void exit_with_error_message(char *error_message)
 {
 	printf("%s\n", error_message);
 	exit(0);
+}
+
+/**
+ * clear_buffer
+ *
+ * remove the \\n character from the stdin after scanf
+ */
+void clear_buffer()
+{
+	int c;
+	while ((c = getchar()) != '\n' && c != EOF)
+	{
+	};
 }

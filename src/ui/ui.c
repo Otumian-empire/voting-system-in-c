@@ -57,3 +57,15 @@ void add_voter_ui()
 	printf("Eg: 1000001211 1234 1\n");
 	print_prompt();
 }
+
+/**
+ * add_candidate_ui
+ *
+ * - displays prompt for adding a candidate onto a voting process
+ */
+void add_candidate_ui()
+{
+	printf("Enter voter's username, full name and voting process ID in order\n");
+	printf("Eg: 1000001211 john doe 1\n");
+	print_prompt();
+}

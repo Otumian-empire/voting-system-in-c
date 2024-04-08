@@ -1,9 +1,13 @@
 #include "./controller.h"
 
-// o. start app
+/**
+ * start app
+ *
+ * - calls start app ui
+ * - returns an integer, the option chosen for an action
+ */
 int start_app_controller()
 {
-
 	start_app_ui();
 	int start_option = get_int_input();
 	if (!validate_input(start_option, UI_START_APP_OPTION_START, UI_START_APP_OPTION_END))
@@ -16,7 +20,12 @@ int start_app_controller()
 	return start_option;
 }
 
-// 1. create a voting process
+/**
+ * create a voting process
+ *
+ * - calls create voting process ui
+ * - name of the voting process is required. it is read from the stdin
+ */
 void create_voting_process_controller()
 {
 	create_voting_process_ui();
@@ -25,7 +34,12 @@ void create_voting_process_controller()
 	printf("voting process name: %s\n", str);
 }
 
-// 2. add voters
+/**
+ * add voters
+ *
+ * - calls add voter ui
+ * - voter's username, pin and the voting process id is required
+ */
 void add_voter_controller()
 {
 	printf("add_voter_controller\n");

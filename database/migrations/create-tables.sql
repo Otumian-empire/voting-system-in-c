@@ -20,7 +20,7 @@ CREATE TABLE registered_voters (
 -- Create Candidates table
 CREATE TABLE candidates (
     id INTEGER PRIMARY KEY,
-    candidate_id TEXT NOT NULL UNIQUE,
+    username TEXT NOT NULL UNIQUE,
     name TEXT NOT NULL,
     voting_processes INTEGER,
     FOREIGN KEY(voting_processes) REFERENCES voting_processes(id)

@@ -40,7 +40,7 @@ This project implements a simple voting system that manages:
 > entity name: candidates
 
 - id: number, that represents row id
-- candidate_id: a string of 10 characters that uniquely identifies a nominated candidate
+- username: a string of 10 characters that uniquely identifies a nominated candidate
 - name: a string of characters that is displayed for nominated candidate
 - voting_processes: number, that represents a voting processes a candidate is part of
 

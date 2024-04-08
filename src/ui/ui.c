@@ -11,7 +11,7 @@ display options to
 7. view voting results
 else: exit app
  */
-void start_app()
+void start_app_ui()
 {
 	// printf("View for main app\n");
 	printf("Choose options to:\n");
@@ -25,7 +25,7 @@ void start_app()
 	printf("else: exit app\n");
 }
 
-void create_voting_process()
+void create_voting_process_ui()
 {
 	// printf("View for creating voting process\n");
 	printf("Enter name of voting process: ");

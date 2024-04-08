@@ -4,7 +4,7 @@
 int start_app_controller()
 {
 
-	start_app();
+	start_app_ui();
 	int start_option = get_int_input();
 	if (!validate_input(start_option, UI_START_APP_OPTION_START, UI_START_APP_OPTION_END))
 	{
@@ -19,7 +19,7 @@ int start_app_controller()
 // 1. create a voting process
 void create_voting_process_controller()
 {
-	create_voting_process();
+	create_voting_process_ui();
 	char str[100];
 	get_str_input(str, sizeof(str));
 	printf("voting process name: %s\n", str);

@@ -12,7 +12,7 @@
 #ifndef _ui_h
 #define _ui_h
 
-void start_app();
-void create_voting_process();
+void start_app_ui();
+void create_voting_process_ui();
 
 #endif

@@ -65,3 +65,15 @@ void add_candidate_ui()
 	printf("Enter voter's username, full name and voting process ID in order\n");
 	printf("Eg: 1000001211 john doe 1\n");
 }
+
+/**
+ * vote_ui
+ *
+ * - displays the prompt for a registered voter to vote
+ * - Eg: [voting_process] [username] [pin] [candidate] [confirmation]
+ */
+void vote_ui()
+{
+	printf("Choose a voting process, login, choose candidate and confirm vote\n");
+	printf("Eg: [voting_process] [username] [pin] [candidate] [confirmation]\n");
+}

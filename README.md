@@ -4,33 +4,33 @@ This is a simple tool that helps run elections from the command-line. It's writt
 
 ## Dependencies
 
-- Database [sqlite3](https://www.sqlite.org/docs.html)
+-   Database [sqlite3](https://www.sqlite.org/docs.html)
 
 ## Resources
 
-- [gcc](https://developer.fedoraproject.org/tech/languages/c/c_installation.html)
-- [sqlite3](https://www.sqlite.org/docs.html)
+-   [gcc](https://developer.fedoraproject.org/tech/languages/c/c_installation.html)
+-   [sqlite3](https://www.sqlite.org/docs.html)
 
-  - ```sh
-    # update system
-    sudo apt update
-    # sudo dfn update
+    -   ```sh
+        # update system
+        sudo apt update
+        # sudo dfn update
 
-    # install sqlite3
-    sudo apt install sqlite3
-    # sudo dnf install sqlite3
+        # install sqlite3
+        sudo apt install sqlite3
+        # sudo dnf install sqlite3
 
-    ```
+        ```
 
-- vscode
-- [SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite) by alexcvzz
+-   vscode
+-   [SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite) by alexcvzz
 
 ## Installation/Set up
 
-- Install C compiler, `sudo dnf install make automake gcc`,
-- Run this command to create the `bin` folder, `mkdir bin` when the `make create-db` gives you an error.
-- Drop the database with `make drop-db`, after a `database` modification. Run, `make create-db`
-- Create Database and migrate the tables, `make create-db`
+-   Install C compiler, `sudo dnf install make automake gcc`, or install build essentials.
+-   Run this command to create the `bin` folder, `mkdir bin` when the `make create-db` gives you an error.
+-   Drop the database with `make drop-db`, after a `database` modification. Run, `make create-db`
+-   Create Database and migrate the tables, `make create-db`
 
 ## Build
 

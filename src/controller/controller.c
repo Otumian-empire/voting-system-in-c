@@ -92,7 +92,36 @@ void add_candidate_controller()
 // 4. vote
 void vote_controller()
 {
-	printf("vote_controller\n");
+	vote_ui();
+	char username[11] = {'\0'}, pin[6] = {'\0'};
+	int voting_process_id = 0, candidate_id = 0, confirmation = 0;
+
+	print_prompt_ui();
+	voting_process_id = get_int_input();
+
+	print_prompt_ui();
+	get_str_input(username, sizeof(username));
+
+	print_prompt_ui();
+	get_str_input(pin, sizeof(pin));
+
+	print_prompt_ui();
+	candidate_id = get_int_input();
+
+	print_prompt_ui();
+	confirmation = get_int_input();
+
+	char support_text[15] = {'\0'};
+	if (confirmation == 1)
+	{
+		strcpy(support_text, "voted");
+	}
+	else
+	{
+		strcpy(support_text, "did not vote");
+	}
+
+	printf("vote_controller: %s(%s) %s for candidate(%d) in the VPID(%d)\n", username, pin, support_text, candidate_id, voting_process_id);
 }
 
 // 5. view voter's result (this is done by a voter)

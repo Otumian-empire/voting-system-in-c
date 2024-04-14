@@ -36,8 +36,21 @@ This is a simple tool that helps run elections from the command-line. It's writt
 
 ## Execution
 
-## Contribution
+-   After successful installation
+-   run, `make` then use keyboard inputs to choose and enter data
+
+## Limitations
+
+-   There is no admin, the user running the app is the admin
+-   The main focus at this moment is to get something working
 
 ## Improvements
 
-## Limitations
+-   Add bulk voters
+-   Hash the voter pin
+-   Keep system app running in a loop so that user doesn't have to run `make` all the time
+-   Add actual graphics with table views and buttons where user can click to interact with the application
+-   Keep activity logs (for both admin and a registered voter)
+-   Switch to a MySQL or PostgreSQL (even though SQLite is okay but for the issue of blocking - locking)
+
+## Contribution

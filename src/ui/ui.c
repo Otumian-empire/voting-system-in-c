@@ -90,3 +90,14 @@ void view_voters_result_ui()
 	printf("Choose a voting process and login\n");
 	printf("Eg: [voting_process] [username] [pin]\n");
 }
+
+/**
+ * end_voting_process_ui
+ *
+ * - display a view for the admin to end a voting process
+ * - Eg: [voting_process]
+ */
+void end_voting_process_ui()
+{
+	printf("Choose voting process to end\n");
+}

@@ -146,7 +146,14 @@ void view_voters_result_controller()
 // 6. end voting process
 void end_voting_process_controller()
 {
-	printf("end_voting_process_controller\n");
+	// TODO: list the available voting processes available
+	end_voting_process_ui();
+	int voting_process_id = 0;
+
+	print_prompt_ui();
+	voting_process_id = get_int_input();
+
+	printf("end_voting_process_controller: Admin is ending VPID(%d)\n", voting_process_id);
 }
 
 // 7. view voting results

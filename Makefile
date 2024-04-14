@@ -1,6 +1,6 @@
 files = src/main.c src/ui/ui.c src/include/include.c src/controller/controller.c
 bin = bin/main
-cc = gcc -Wall -Werror
+cc = gcc -Wall -Werror -fsanitize=address
 db_name = bin/voting_system_db.db
 create_tables_path = database/migrations/create-tables.sql
 
@@ -30,4 +30,4 @@ create-db:
 
 drop-db:
 	@rm ${db_name}
-	@echo "database dropped successfully"
+	@echo "database dropped successfully"	

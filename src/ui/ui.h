@@ -19,5 +19,6 @@ void print_prompt_ui();
 void vote_ui();
 void view_voters_result_ui();
 void end_voting_process_ui();
+void view_voting_results_ui();
 
 #endif

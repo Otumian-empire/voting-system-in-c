@@ -159,5 +159,12 @@ void end_voting_process_controller()
 // 7. view voting results
 void view_voting_results_controller()
 {
-	printf("view_voting_results_controller\n");
+	// TODO: list the available voting processes available
+	view_voting_results_ui();
+	int voting_process_id = 0;
+
+	print_prompt_ui();
+	voting_process_id = get_int_input();
+
+	printf("view_voting_results_controller: Admin is viewing results for VPID(%d)\n", voting_process_id);
 }

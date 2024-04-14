@@ -101,3 +101,14 @@ void end_voting_process_ui()
 {
 	printf("Choose voting process to end\n");
 }
+
+/**
+ * view_voting_results_ui
+ *
+ * - displays the results for a voting process (vote collation)
+ * - Eg: [voting_process]
+ */
+void view_voting_results_ui()
+{
+	printf("Choose voting process to display result\n");
+}

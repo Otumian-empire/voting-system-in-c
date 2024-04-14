@@ -127,7 +127,20 @@ void vote_controller()
 // 5. view voter's result (this is done by a voter)
 void view_voters_result_controller()
 {
-	printf("view_voters_result_controller\n");
+	view_voters_result_ui();
+	char username[11] = {'\0'}, pin[6] = {'\0'};
+	int voting_process_id = 0;
+
+	print_prompt_ui();
+	voting_process_id = get_int_input();
+
+	print_prompt_ui();
+	get_str_input(username, sizeof(username));
+
+	print_prompt_ui();
+	get_str_input(pin, sizeof(pin));
+
+	printf("view_voters_result_controller: %s(%s) viewed result for VPID(%d)\n", username, pin, voting_process_id);
 }
 
 // 6. end voting process

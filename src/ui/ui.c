@@ -77,3 +77,16 @@ void vote_ui()
 	printf("Choose a voting process, login, choose candidate and confirm vote\n");
 	printf("Eg: [voting_process] [username] [pin] [candidate] [confirmation]\n");
 }
+
+/**
+ * view_voters_result_ui
+ *
+ * - displays a voter's result (this is done by a voter)
+ * - it could also be used to know whether voter has voted
+ * - Eg: [voting_process] [username] [pin]
+ */
+void view_voters_result_ui()
+{
+	printf("Choose a voting process and login\n");
+	printf("Eg: [voting_process] [username] [pin]\n");
+}

@@ -17,5 +17,6 @@ void add_voter_ui();
 void add_candidate_ui();
 void print_prompt_ui();
 void vote_ui();
+void view_voters_result_ui();
 
 #endif

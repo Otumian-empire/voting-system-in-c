@@ -22,8 +22,9 @@ This is a simple tool that helps run elections from the command-line. It's writt
 
         ```
 
--   vscode
+-   [vscode](https://code.visualstudio.com/download)
 -   [SQLite extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite) by alexcvzz
+-   [SQLite C - tutorialspoint](https://www.tutorialspoint.com/sqlite/sqlite_c_cpp.htm)
 
 ## Installation/Set up
 

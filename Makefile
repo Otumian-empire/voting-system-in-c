@@ -1,6 +1,7 @@
-files = src/main.c src/ui/ui.c src/include/include.c src/controller/controller.c
+files = src/main.c src/ui/ui.c src/include/include.c src/controller/controller.c src/models/model.c
 bin = bin/main
-cc = gcc -Wall -Werror -fsanitize=address
+cc = gcc -Wall -Werror -fsanitize=address -l sqlite3
+
 db_name = bin/voting_system_db.db
 create_tables_path = database/migrations/create-tables.sql
 

@@ -21,7 +21,7 @@ int validate_input(int input, int start, int end)
 void get_str_input(char *input, size_t size)
 {
 	fgets(input, size, stdin);
-	if (input[strlen(input) - 1] == '\n')
+	if ('\n' == input[strlen(input) - 1])
 	{
 		input[strlen(input) - 1] = '\0';
 	}

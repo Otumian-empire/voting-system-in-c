@@ -194,3 +194,24 @@ void view_voting_results_controller()
 	printf("view_voting_results_controller: Admin is viewing results for VPID(%d)\n",
 		   voting_process_id);
 }
+
+/**
+ * view_list_voting_processes_controller
+ *
+ * - calls view_list_voting_processes_ui
+ */
+void view_list_voting_processes_controller()
+{
+	// I don't think we need a pointer here
+	VotingProcess *vp[MAX_ROW_SIZE];
+
+	for (int i = 0; i < MAX_ROW_SIZE; i++)
+	{
+		if (vp[i] == NULL)
+		{
+			return;
+		}
+
+		print_voting_process(*vp[i]);
+	}
+}

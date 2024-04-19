@@ -22,7 +22,9 @@ typedef struct
 	char status[BOOL_SIZE];
 } VotingProcess;
 
+void print_voting_process(VotingProcess v);
 int create_voting_process_model(char *voting_process_name);
+void list_voting_process_models();
 
 typedef struct
 {

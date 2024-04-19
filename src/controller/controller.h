@@ -12,5 +12,6 @@ void vote_controller();
 void view_voters_result_controller();
 void end_voting_process_controller();
 void view_voting_results_controller();
+void view_list_voting_processes_controller();
 
 #endif

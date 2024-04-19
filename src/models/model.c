@@ -71,3 +71,24 @@ int create_voting_process_model(char *voting_process_name)
 
 	return insert_status;
 }
+
+/**
+ * print_voting_process
+ *
+ * prints the content of a voting process
+ */
+void print_voting_process(VotingProcess v)
+{
+	printf("%-4s %-30s %-4s\n", v.id, v.name,
+		   strcmp(PROCESS_STATUS_TRUE, v.status)
+			   ? PROCESS_STATUS_DONE
+			   : PROCESS_STATUS_ON_GOING);
+}
+
+/**
+ * list_voting_process_models
+ */
+void list_voting_process_models()
+{
+	// SELECT id, name, status FROM voting_processes
+}

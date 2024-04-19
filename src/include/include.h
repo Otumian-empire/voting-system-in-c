@@ -24,6 +24,7 @@
 #define VIEW_VOTERS_RESULT 5
 #define END_VOTING_PROCESS 6
 #define VIEW_VOTING_RESULTS 7
+#define VIEW_LIST_VOTING_PROCESSES 8
 
 // error, failure and success codes
 #define ERROR -1
@@ -38,6 +39,13 @@
 #define NAME_SIZE 26
 #define COUNT_SIZE 7
 #define TITLE_SIZE 256
+#define MAX_ROW_SIZE 1000
+
+// status for a record
+#define PROCESS_STATUS_TRUE "1"
+#define PROCESS_STATUS_FALSE "0"
+#define PROCESS_STATUS_DONE "Done"
+#define PROCESS_STATUS_ON_GOING "On going"
 
 // database file path
 #define DATABASE_PATH "bin/voting_system_db.db"

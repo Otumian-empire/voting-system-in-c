@@ -9,6 +9,7 @@
 // database functions
 void create_connection();
 void close_connection();
+void get_connection_error_message(char *);
 
 // CRUD util
 static int write_callback(void *NotUsed, int argc, char **argv, char **azColName);

@@ -31,6 +31,16 @@ void close_connection()
 	sqlite3_close(connection);
 }
 
+/**
+ * get_connection_error_message
+ *
+ * get the error message that the connection puts out
+ */
+void get_connection_error_message(char *error_message)
+{
+	strcpy(error_message, sqlite3_errmsg(connection));
+}
+
 static int write_callback(void *NotUsed, int argc, char **argv, char **azColName)
 {
 	return 0;
@@ -51,18 +61,12 @@ int create_voting_process_model(char *voting_process_name)
 	sprintf(insert_sql, "INSERT INTO voting_processes(name) VALUES('%s')\n",
 			voting_process_name);
 
-	if (SQLITE_OK == sqlite3_exec(
-						 connection,
-						 insert_sql,
-						 write_callback,
-						 0,
-						 &error_message))
+	int sqlite_result = sqlite3_exec(
+		connection, insert_sql, write_callback, 0, &error_message);
+
+	if (SQLITE_OK == sqlite_result)
 	{
 		insert_status = SUCCESS;
-	}
-	else
-	{
-		fprintf(stderr, "Can't create: %s\n", sqlite3_errmsg(connection));
 	}
 
 	return insert_status;

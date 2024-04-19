@@ -14,7 +14,7 @@ int start_app_controller()
 	int start_option = get_int_input();
 	if (!validate_input(start_option, UI_START_APP_OPTION_START, UI_START_APP_OPTION_END))
 	{
-		char message[100];
+		char message[TITLE_SIZE];
 		sprintf(message, UI_START_APP_OPTION_ERR_MESSAGE);
 		exit_with_error_message(message);
 	}
@@ -36,18 +36,19 @@ void create_voting_process_controller()
 	char voting_process_name[TITLE_SIZE];
 	get_str_input(voting_process_name, sizeof(voting_process_name));
 
-	if (create_voting_process_model(voting_process_name) == SUCCESS)
+	if (SUCCESS == create_voting_process_model(voting_process_name))
 	{
 		printf("voting process name: %s\n", voting_process_name);
 	}
 	else
 	{
-		printf("Could not create voting process\n");
+		char error_message[TITLE_SIZE];
+		get_connection_error_message(error_message);
 
 		fprintf(
 			stderr,
-			"Error occurred while creating 'Voting process': %s",
-			"error_message");
+			"Error occurred while creating 'Voting process': %s\n",
+			error_message);
 	}
 }
 
@@ -133,7 +134,7 @@ void vote_controller()
 	confirmation = get_int_input();
 
 	char support_text[15] = {'\0'};
-	if (confirmation == SUCCESS)
+	if (SUCCESS == confirmation)
 	{
 		strcpy(support_text, "voted");
 	}

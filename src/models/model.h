@@ -10,6 +10,9 @@
 void create_connection();
 void close_connection();
 
+// CRUD util
+static int write_callback(void *NotUsed, int argc, char **argv, char **azColName);
+
 // entities (tables)
 typedef struct
 {
@@ -17,6 +20,8 @@ typedef struct
 	char name[NAME_SIZE];
 	char status[BOOL_SIZE];
 } VotingProcess;
+
+int create_voting_process_model(char *voting_process_name);
 
 typedef struct
 {

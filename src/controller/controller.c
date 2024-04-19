@@ -1,7 +1,7 @@
 #include "./controller.h"
 
 /**
- * start app
+ * start_app_controller
  *
  * - calls start app ui
  * - returns an integer, the option chosen for an action
@@ -33,13 +33,26 @@ void create_voting_process_controller()
 	create_voting_process_ui();
 	print_prompt_ui();
 
-	char str[TITLE_SIZE];
-	get_str_input(str, sizeof(str));
-	printf("voting process name: %s\n", str);
+	char voting_process_name[TITLE_SIZE];
+	get_str_input(voting_process_name, sizeof(voting_process_name));
+
+	if (create_voting_process_model(voting_process_name) == SUCCESS)
+	{
+		printf("voting process name: %s\n", voting_process_name);
+	}
+	else
+	{
+		printf("Could not create voting process\n");
+
+		fprintf(
+			stderr,
+			"Error occurred while creating 'Voting process': %s",
+			"error_message");
+	}
 }
 
 /**
- * add voters
+ * add_voter_controller
  *
  * - calls add voter ui
  * - voter's username, pin and the voting process id is required
@@ -65,7 +78,7 @@ void add_voter_controller()
 }
 
 /**
- * add candidates
+ * add_candidate_controller
  *
  * - calls add candidate ui
  * - candidate's username, name and voting process id are required
@@ -89,7 +102,15 @@ void add_candidate_controller()
 	printf("add_candidate_controller: %s %s VPID(%d)\n", username, full_name, voting_process_id);
 }
 
-// 4. vote
+/**
+ * vote_controller
+ *
+ * - calls vote ui
+ * - voting process id is require for a registered voter to vote
+ * - voter needs to be authenticated by entering their username and pin
+ * - choose a candidate to vote for
+ * - voter then has to confirm they are done with the voting process
+ */
 void vote_controller()
 {
 	vote_ui();

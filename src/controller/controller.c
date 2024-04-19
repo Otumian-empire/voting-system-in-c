@@ -33,7 +33,7 @@ void create_voting_process_controller()
 	create_voting_process_ui();
 	print_prompt_ui();
 
-	char str[100];
+	char str[TITLE_SIZE];
 	get_str_input(str, sizeof(str));
 	printf("voting process name: %s\n", str);
 }
@@ -47,7 +47,7 @@ void create_voting_process_controller()
  */
 void add_voter_controller()
 {
-	char username[11] = {'\0'}, pin[6] = {'\0'};
+	char username[USER_NAME_SIZE] = {'\0'}, pin[PIN_SIZE] = {'\0'};
 	int voting_process_id = 0;
 
 	add_voter_ui();
@@ -74,7 +74,7 @@ void add_voter_controller()
 void add_candidate_controller()
 {
 	add_candidate_ui();
-	char username[11] = {'\0'}, full_name[26] = {'\0'};
+	char username[USER_NAME_SIZE] = {'\0'}, full_name[NAME_SIZE] = {'\0'};
 	int voting_process_id = 0;
 
 	print_prompt_ui();
@@ -93,7 +93,7 @@ void add_candidate_controller()
 void vote_controller()
 {
 	vote_ui();
-	char username[11] = {'\0'}, pin[6] = {'\0'};
+	char username[USER_NAME_SIZE] = {'\0'}, pin[PIN_SIZE] = {'\0'};
 	int voting_process_id = 0, candidate_id = 0, confirmation = 0;
 
 	print_prompt_ui();
@@ -112,7 +112,7 @@ void vote_controller()
 	confirmation = get_int_input();
 
 	char support_text[15] = {'\0'};
-	if (confirmation == 1)
+	if (confirmation == SUCCESS)
 	{
 		strcpy(support_text, "voted");
 	}
@@ -121,14 +121,15 @@ void vote_controller()
 		strcpy(support_text, "did not vote");
 	}
 
-	printf("vote_controller: %s(%s) %s for candidate(%d) in the VPID(%d)\n", username, pin, support_text, candidate_id, voting_process_id);
+	printf("vote_controller: %s(%s) %s for candidate(%d) in the VPID(%d)\n",
+		   username, pin, support_text, candidate_id, voting_process_id);
 }
 
 // 5. view voter's result (this is done by a voter)
 void view_voters_result_controller()
 {
 	view_voters_result_ui();
-	char username[11] = {'\0'}, pin[6] = {'\0'};
+	char username[USER_NAME_SIZE] = {'\0'}, pin[PIN_SIZE] = {'\0'};
 	int voting_process_id = 0;
 
 	print_prompt_ui();
@@ -140,7 +141,8 @@ void view_voters_result_controller()
 	print_prompt_ui();
 	get_str_input(pin, sizeof(pin));
 
-	printf("view_voters_result_controller: %s(%s) viewed result for VPID(%d)\n", username, pin, voting_process_id);
+	printf("view_voters_result_controller: %s(%s) viewed result for VPID(%d)\n",
+		   username, pin, voting_process_id);
 }
 
 // 6. end voting process
@@ -153,7 +155,8 @@ void end_voting_process_controller()
 	print_prompt_ui();
 	voting_process_id = get_int_input();
 
-	printf("end_voting_process_controller: Admin is ending VPID(%d)\n", voting_process_id);
+	printf("end_voting_process_controller: Admin is ending VPID(%d)\n",
+		   voting_process_id);
 }
 
 // 7. view voting results
@@ -166,5 +169,6 @@ void view_voting_results_controller()
 	print_prompt_ui();
 	voting_process_id = get_int_input();
 
-	printf("view_voting_results_controller: Admin is viewing results for VPID(%d)\n", voting_process_id);
+	printf("view_voting_results_controller: Admin is viewing results for VPID(%d)\n",
+		   voting_process_id);
 }

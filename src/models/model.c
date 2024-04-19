@@ -23,10 +23,9 @@ void create_connection()
 /**
  * close_connection
  *
- * Close connection and exit when an error occurs or anything of that sort
+ * Close connection
  */
 void close_connection()
 {
 	sqlite3_close(connection);
-	exit(ERROR);
 }

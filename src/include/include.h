@@ -10,7 +10,9 @@
 #define UI_START_APP_OPTION_START 1
 #define UI_START_APP_OPTION_END 7
 
-#define UI_START_APP_OPTION_ERR_MESSAGE "invalid start option entered. expected: [%d, %d]", UI_START_APP_OPTION_START, UI_START_APP_OPTION_END
+#define UI_START_APP_OPTION_ERR_MESSAGE                 \
+	"invalid start option entered. expected: [%d, %d]", \
+		UI_START_APP_OPTION_START, UI_START_APP_OPTION_END
 
 #define UI_INPUT_PROMPT "$ "
 
@@ -35,6 +37,7 @@
 #define PIN_SIZE 6
 #define NAME_SIZE 26
 #define COUNT_SIZE 7
+#define TITLE_SIZE 256
 
 // database file path
 #define DATABASE_PATH "bin/voting_system_db.db"

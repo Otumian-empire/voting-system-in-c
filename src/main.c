@@ -1,5 +1,4 @@
 #include "./controller/controller.h"
-// #include "./models/model.h"
 
 int main()
 {
@@ -43,5 +42,6 @@ int main()
 		exit_with_error_message("Invalid option selected");
 	}
 
+	close_connection();
 	return 0;
 }

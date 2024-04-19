@@ -35,7 +35,7 @@ void get_str_input(char *input, size_t size)
 void exit_with_error_message(char *error_message)
 {
 	printf("%s\n", error_message);
-	exit(0);
+	exit(ERROR);
 }
 
 /**

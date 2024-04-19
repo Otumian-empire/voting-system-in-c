@@ -1,6 +1,8 @@
-files = src/main.c src/ui/ui.c src/include/include.c src/controller/controller.c src/models/model.c
-bin = bin/main
-cc = gcc -Wall -Werror -fsanitize=address -l sqlite3
+files=src/main.c src/ui/ui.c src/include/include.c src/controller/controller.c src/models/model.c
+bin=bin/main
+cc=gcc 
+ccflags =-Wall -Werror -Wextra -Wpedantic -std=c11 -fsanitize=address
+ll=-lsqlite3
 
 db_name = bin/voting_system_db.db
 create_tables_path = database/migrations/create-tables.sql
@@ -9,7 +11,7 @@ all: compile run
 
 compile:
 	@clear
-	@$(cc) $(files) -o $(bin)
+	@$(cc) $(ccflags) $(ll) $(files) -o $(bin)
 
 run:
 	@./$(bin)

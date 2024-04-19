@@ -1,7 +1,12 @@
 #include "./controller/controller.h"
+// #include "./models/model.h"
 
 int main()
 {
+
+	// start the database connection
+	create_connection();
+
 	int start_option = start_app_controller();
 
 	// 1. create a voting process
@@ -13,25 +18,25 @@ int main()
 	// 7. view voting results
 	switch (start_option)
 	{
-	case 1:
+	case VOTING_PROCESS:
 		create_voting_process_controller();
 		break;
-	case 2:
+	case ADD_VOTER:
 		add_voter_controller();
 		break;
-	case 3:
+	case ADD_CANDIDATE:
 		add_candidate_controller();
 		break;
-	case 4:
+	case VOTE:
 		vote_controller();
 		break;
-	case 5:
+	case VIEW_VOTERS_RESULT:
 		view_voters_result_controller();
 		break;
-	case 6:
+	case END_VOTING_PROCESS:
 		end_voting_process_controller();
 		break;
-	case 7:
+	case VIEW_VOTING_RESULTS:
 		view_voting_results_controller();
 		break;
 	default:

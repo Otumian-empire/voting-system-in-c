@@ -1,8 +1,5 @@
-#include <stdlib.h>
-#include <stdio.h>
-
 #include "../ui/ui.h"
-#include "../include/include.h"
+#include "../models/model.h"
 
 #ifndef _controller_h
 #define _controller_h

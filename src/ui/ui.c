@@ -22,13 +22,14 @@ void start_app_ui()
 {
 	// printf("View for main app\n");
 	printf("Choose options to:\n");
-	printf("1. create a voting process\n");
-	printf("2. add voters\n");
-	printf("3. add candidates\n");
-	printf("4. vote\n");
-	printf("5. view voter's result (this is done by a voter)\n");
-	printf("6. end voting process\n");
-	printf("7. view voting results\n");
+	printf("%d. create a voting process\n", VOTING_PROCESS);
+	printf("%d. add voters\n", ADD_VOTER);
+	printf("%d. add candidates\n", ADD_CANDIDATE);
+	printf("%d. vote\n", VOTE);
+	printf("%d. view voter's result (this is done by a voter)\n", VIEW_VOTERS_RESULT);
+	printf("%d. end voting process\n", END_VOTING_PROCESS);
+	printf("%d. view voting results\n", VIEW_VOTING_RESULTS);
+	printf("%d. view voting processes\n", VIEW_LIST_VOTING_PROCESSES);
 	printf("else: exit app\n");
 }
 
@@ -111,4 +112,17 @@ void end_voting_process_ui()
 void view_voting_results_ui()
 {
 	printf("Choose voting process to display result\n");
+}
+
+/**
+ * view_list_voting_processes_ui
+ *
+ * displays the headers for the voting process list
+ */
+void view_list_voting_processes_ui()
+{
+	char pads[] = "----------";
+	printf("Voting processes\n");
+	printf("%-4s %-30s %-4s\n", "ID", "NAME", "STATUS");
+	printf("%s-%s-%s-%s\n", pads, pads, pads, pads);
 }

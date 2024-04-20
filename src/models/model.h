@@ -17,14 +17,38 @@ static int write_callback(void *NotUsed, int argc, char **argv, char **azColName
 // entities (tables)
 typedef struct
 {
-	char id[ID_SIZE];
+	// this didn't work
+	/* output sample
+
+	Voting processes
+	ID   NAME                           STATUS
+	-------------------------------------------
+	XȘ                                 Done
+	X��                                 Done
+	X��                                 Done
+	*/
+	/* char id[ID_SIZE];
 	char name[NAME_SIZE];
-	char status[BOOL_SIZE];
+	char status[BOOL_SIZE]; */
+	char *id;
+	char *name;
+	char *status;
+	/* output sample
+
+	Voting processes
+	ID   NAME                           STATUS
+	-------------------------------------------
+	1    best dancer                    Done
+	2    president of class 3           Done
+	3    Judo club presidency           Done
+
+	*/
 } VotingProcess;
 
 void print_voting_process(VotingProcess v);
 int create_voting_process_model(char *voting_process_name);
 void list_voting_process_models();
+static int list_voting_process_callback(void *NotUsed, int argc, char **argv, char **azColName);
 
 typedef struct
 {

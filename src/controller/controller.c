@@ -202,8 +202,11 @@ void view_voting_results_controller()
  */
 void view_list_voting_processes_controller()
 {
+	view_list_voting_processes_ui();
+	list_voting_process_models();
+
 	// I don't think we need a pointer here
-	VotingProcess *vp[MAX_ROW_SIZE];
+	/* VotingProcess *vp[MAX_ROW_SIZE];
 
 	for (int i = 0; i < MAX_ROW_SIZE; i++)
 	{
@@ -213,5 +216,5 @@ void view_list_voting_processes_controller()
 		}
 
 		print_voting_process(*vp[i]);
-	}
+	} */
 }

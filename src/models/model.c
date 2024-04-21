@@ -92,7 +92,6 @@ void list_voting_process_models()
 {
 	// SELECT id, name, status FROM voting_processes
 	char *read_sql = "SELECT * FROM voting_processes";
-	/* debugging(sprintf(DEBUGGING_FORMAT), "list_voting_process_models"); */
 
 	if (SQLITE_OK != sqlite3_exec(
 						 connection,
@@ -102,7 +101,7 @@ void list_voting_process_models()
 						 &error_message))
 
 	{
-		puts("couldn't read from table");
+		printf("couldn't read from table\n");
 		fprintf(stderr, "%s\n", error_message);
 	}
 }
@@ -114,19 +113,8 @@ void list_voting_process_models()
  */
 static int list_voting_process_callback(void *NotUsed, int argc, char **argv, char **azColName)
 {
-	// TODO: fix this so that you can pass and destructure the argv
-
-	// create a voting process
 	VotingProcess voting_process = {argv[0], argv[1], argv[2]};
-
-	// printf("%-4s %-30s %-4s\n", argv[0], argv[1],
-	// 	   strcmp(PROCESS_STATUS_TRUE, argv[2])
-	// 		   ? PROCESS_STATUS_DONE
-	// 		   : PROCESS_STATUS_ON_GOING);
-
 	print_voting_process(voting_process);
-
-	// printf("\n");
 
 	return 0;
 }

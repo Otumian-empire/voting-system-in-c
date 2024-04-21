@@ -50,14 +50,3 @@ void clear_buffer()
 	{
 	};
 }
-
-/**
- * debugging
- *
- * prints a message to the console
- */
-/* void debugging(char *meta, char *message)
-{
-	printf("%s\n", meta);
-	printf("DEBUGGING: %s\n\n", message);
-} */

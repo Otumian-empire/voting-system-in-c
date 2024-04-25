@@ -8,7 +8,7 @@
 
 // the min and max expected value for the start app options
 #define UI_START_APP_OPTION_START 1
-#define UI_START_APP_OPTION_END 8
+#define UI_START_APP_OPTION_END 9
 
 #define UI_START_APP_OPTION_ERR_MESSAGE                 \
 	"invalid start option entered. expected: [%d, %d]", \
@@ -25,6 +25,7 @@
 #define END_VOTING_PROCESS 6
 #define VIEW_VOTING_RESULTS 7
 #define VIEW_LIST_VOTING_PROCESSES 8
+#define VIEW_LIST_REGISTERED_VOTERS 9
 
 // error, failure and success codes
 #define ERROR -1
@@ -46,6 +47,8 @@
 #define PROCESS_STATUS_FALSE "0"
 #define PROCESS_STATUS_DONE "Done"
 #define PROCESS_STATUS_ON_GOING "On going"
+#define PROCESS_STATUS_VOTED "Voted"
+#define PROCESS_STATUS_HAS_NOT_VOTED "Has not voted"
 
 // database file path
 #define DATABASE_PATH "bin/voting_system_db.db"

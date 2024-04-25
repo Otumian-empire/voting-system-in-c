@@ -225,3 +225,34 @@ void view_list_voting_processes_controller()
 	view_list_voting_processes_ui();
 	list_voting_process_models();
 }
+
+/**
+ * view_registered_voter_controller
+ *
+ * - calls view_registered_voter_ui and read_registered_voter_model
+ */
+void view_registered_voter_controller()
+{
+	// view_list_voting_processes_ui();
+	// list_voting_process_models();
+}
+
+/**
+ * view_list_registered_voters_controller
+ *
+ * - calls view_list_registered_voters_header_ui and list_registered_voters_model
+ */
+void view_list_registered_voters_controller()
+{
+
+	// TODO: find a way to put this prompt in the UI
+	printf("Enter voting process ID\n");
+
+	print_prompt_ui();
+	int voting_process_id = get_int_input();
+
+	// TODO: check that the voting process exits
+
+	view_list_registered_voters_header_ui();
+	list_registered_voters_model(voting_process_id);
+}

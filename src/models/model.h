@@ -12,7 +12,7 @@ void close_connection();
 void get_connection_error_message(char *);
 
 // CRUD util
-static int write_callback(void *NotUsed, int argc, char **argv, char **azColName);
+int write_callback(void *NotUsed, int argc, char **argv, char **azColName);
 
 // entities (tables)
 
@@ -27,7 +27,7 @@ typedef struct
 void print_voting_process(VotingProcess v);
 int create_voting_process_model(char *voting_process_name);
 void list_voting_process_models();
-static int list_voting_process_callback(void *NotUsed, int argc, char **argv, char **azColName);
+int list_voting_process_callback(void *NotUsed, int argc, char **argv, char **azColName);
 
 // Registered voter and its associated functions
 typedef struct
@@ -37,11 +37,11 @@ typedef struct
 	char *has_voted;
 	char *pin;
 	char *voting_processes;
-} RegisteredVoters;
+} RegisteredVoter;
 
+void print_registered_voter(RegisteredVoter r);
 int create_registered_voter_model(int voting_process_id, char *username, char *pin);
 void list_registered_voters_model(int voting_process_id);
-void read_registered_voters_model(int voting_process_id, char *username);
 
 typedef struct
 {

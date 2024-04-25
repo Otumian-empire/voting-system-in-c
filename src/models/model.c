@@ -48,10 +48,10 @@ void get_connection_error_message(char *error_message)
 /**
  * write_callback
  *
- * - a static method that does nothing but is passed when writing
+ * - a method that does nothing but is passed when writing
  * - writing can be creating, updating and deleting
  */
-static int write_callback(void *NotUsed, int argc, char **argv, char **azColName)
+int write_callback(void *NotUsed, int argc, char **argv, char **azColName)
 {
 	return 0;
 }
@@ -90,7 +90,7 @@ int create_voting_process_model(char *voting_process_name)
 void print_voting_process(VotingProcess v)
 {
 	printf("%-4s %-30s %-4s\n", v.id, v.name,
-		   SUCCESS == (PROCESS_STATUS_TRUE, v.status)
+		   SUCCESS == strcmp(PROCESS_STATUS_TRUE, v.status)
 			   ? PROCESS_STATUS_DONE
 			   : PROCESS_STATUS_ON_GOING);
 }
@@ -123,7 +123,7 @@ void list_voting_process_models()
  *
  * callback used for printing voting process
  */
-static int list_voting_process_callback(void *NotUsed, int argc, char **argv, char **azColName)
+int list_voting_process_callback(void *NotUsed, int argc, char **argv, char **azColName)
 {
 	VotingProcess voting_process = {argv[0], argv[1], argv[2]};
 	print_voting_process(voting_process);
@@ -161,12 +161,46 @@ int create_registered_voter_model(int voting_process_id, char *username, char *p
 	return insert_status;
 }
 
+void print_registered_voter(RegisteredVoter r)
+{
+	char *has_voted_str = SUCCESS == strcmp(PROCESS_STATUS_TRUE, r.has_voted)
+							  ? PROCESS_STATUS_VOTED
+							  : PROCESS_STATUS_HAS_NOT_VOTED;
+
+	printf("%-4s %-15s %-15s %-25s\n", r.id, r.username, r.voting_processes,
+		   has_voted_str);
+}
+
+/**
+ * list_registered_voters_callback
+ *
+ * callback used for printing registered voter
+ */
+int list_registered_voters_callback(void *NotUsed, int argc, char **argv, char **azColName)
+{
+	RegisteredVoter registered_voter = {argv[0], argv[1], argv[2], argv[3], argv[4]};
+	print_registered_voter(registered_voter);
+
+	return 0;
+}
+
 /**
  * list_registered_voters_model
  */
-void list_registered_voters_model(int voting_process_id) {}
+void list_registered_voters_model(int voting_process_id)
+{
+	// SELECT id, name, status FROM voting_processes
+	char *read_sql = "SELECT * FROM registered_voters";
 
-/**
- * read_registered_voters_model
- */
-void read_registered_voters_model(int voting_process_id, char *username) {}
+	if (SQLITE_OK != sqlite3_exec(
+						 connection,
+						 read_sql,
+						 list_registered_voters_callback,
+						 0,
+						 &error_message))
+
+	{
+		printf("couldn't read from table\n");
+		fprintf(stderr, "%s\n", error_message);
+	}
+}

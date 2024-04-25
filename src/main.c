@@ -41,6 +41,9 @@ int main()
 	case VIEW_LIST_VOTING_PROCESSES:
 		view_list_voting_processes_controller();
 		break;
+	case VIEW_LIST_REGISTERED_VOTERS:
+		view_list_registered_voters_controller();
+		break;
 	default:
 		exit_with_error_message("Invalid option selected");
 	}

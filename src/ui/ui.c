@@ -30,6 +30,7 @@ void start_app_ui()
 	printf("%d. end voting process\n", END_VOTING_PROCESS);
 	printf("%d. view voting results\n", VIEW_VOTING_RESULTS);
 	printf("%d. view voting processes\n", VIEW_LIST_VOTING_PROCESSES);
+	printf("%d. view list of registered voter\n", VIEW_LIST_REGISTERED_VOTERS);
 	printf("else: exit app\n");
 }
 
@@ -126,3 +127,20 @@ void view_list_voting_processes_ui()
 	printf("%-4s %-30s %-4s\n", "ID", "NAME", "STATUS");
 	printf("%s-%s-%s-%s\n", pads, pads, pads, pads);
 }
+
+/**
+ * view_list_registered_voters_header_ui
+ *
+ * displays the headers for the registered voter list
+ */
+void view_list_registered_voters_header_ui()
+{
+	char pads[] = "----------";
+	printf("Registered voters\n");
+
+	printf("%-4s %-15s %-7s %-25s\n",
+		   "ID", "USERNAME", "VOTING PROCESS", "HAS VOTED");
+	printf("%s-%s-%s-%s-%s-%s-%s\n", pads, pads, pads, pads, pads, pads, pads);
+}
+
+void view_registered_voter_ui() {}

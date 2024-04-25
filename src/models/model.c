@@ -1,5 +1,9 @@
 #include "./model.h"
 
+// TODO: check if the username already exists: create a function for it
+// TODO: check if the voting process exists: create a function for it
+// TODO: hash the pin before inserting
+
 static sqlite3 *connection;
 static char *error_message;
 
@@ -41,6 +45,12 @@ void get_connection_error_message(char *error_message)
 	strcpy(error_message, sqlite3_errmsg(connection));
 }
 
+/**
+ * write_callback
+ *
+ * - a static method that does nothing but is passed when writing
+ * - writing can be creating, updating and deleting
+ */
 static int write_callback(void *NotUsed, int argc, char **argv, char **azColName)
 {
 	return 0;
@@ -87,6 +97,8 @@ void print_voting_process(VotingProcess v)
 
 /**
  * list_voting_process_models
+ *
+ * prints a format list of voting processes
  */
 void list_voting_process_models()
 {
@@ -118,3 +130,43 @@ static int list_voting_process_callback(void *NotUsed, int argc, char **argv, ch
 
 	return 0;
 }
+
+/**
+ * create_registered_voter_model
+ */
+int create_registered_voter_model(int voting_process_id, char *username, char *pin)
+{
+	// check if the username already exists
+	// check if the voting process exists
+	// these comments above are tied to the to-dos are the top
+
+	// INSERT INTO registered_voters(username, pin, voting_process_id) VALUES(?,?,?),
+	// username, pin, voting_process_id
+
+	char insert_sql[TITLE_SIZE];
+	int insert_status = FAILURE;
+
+	sprintf(insert_sql,
+			"INSERT INTO registered_voters(username, pin, voting_process_id) VALUES('%s', '%s', '%d')\n",
+			username, pin, voting_process_id);
+
+	int sqlite_result = sqlite3_exec(
+		connection, insert_sql, write_callback, 0, &error_message);
+
+	if (SQLITE_OK == sqlite_result)
+	{
+		insert_status = SUCCESS;
+	}
+
+	return insert_status;
+}
+
+/**
+ * list_registered_voters_model
+ */
+void list_registered_voters_model(int voting_process_id) {}
+
+/**
+ * read_registered_voters_model
+ */
+void read_registered_voters_model(int voting_process_id, char *username) {}

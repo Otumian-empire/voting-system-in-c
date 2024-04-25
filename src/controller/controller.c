@@ -42,6 +42,12 @@ void create_voting_process_controller()
 	}
 	else
 	{
+		// TODO: this can be refactored into a function and process
+		// or event name can be passed to it. Eg: Voting process
+		// void print_error_message(char* event_name);
+		// I tried something like that but it didn't work so reverted it
+		// I think this function should be in the model since it will
+		// have access to sqlite from there
 		char error_message[TITLE_SIZE];
 		get_connection_error_message(error_message);
 
@@ -75,7 +81,21 @@ void add_voter_controller()
 	print_prompt_ui();
 	voting_process_id = get_int_input();
 
-	printf("add_voter_controller: %s %s %d\n", username, pin, voting_process_id);
+	if (SUCCESS == create_registered_voter_model(voting_process_id, username, pin))
+	{
+		printf("add_voter_controller: %s %s %d\n", username, pin, voting_process_id);
+	}
+	else
+	{
+		// TODO: refactor to use the function
+		char error_message[TITLE_SIZE];
+		get_connection_error_message(error_message);
+
+		fprintf(
+			stderr,
+			"Error occurred while creating 'Registered voter': %s\n",
+			error_message);
+	};
 }
 
 /**
